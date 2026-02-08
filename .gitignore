@@ -2,3 +2,4 @@ rasa-venv/
 __pycache__/
 *.pyc
 .env
+models/*.tar.gz
