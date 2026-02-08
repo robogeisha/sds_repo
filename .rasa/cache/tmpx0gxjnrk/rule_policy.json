@@ -1,0 +1,45 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]": "action_increment_attempts_or_finish",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}]": "action_route_advice",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}]": "utter_ask_resolved",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_increment_attempts_or_finish",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_reset_troubleshoot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_ask_loads_example",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_loads_example\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "utter_controls",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "wifi_troubleshoot_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"active_loop\": {\"name\": \"wifi_troubleshoot_form\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "wifi_troubleshoot_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"utter_controls\"}}, {\"active_loop\": {\"name\": \"wifi_troubleshoot_form\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "predicting default action with intent session_start",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "handling active loops and forms - wifi_troubleshoot_form - action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_loads_example\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_troubleshoot_form\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "handling active loops and forms - wifi_troubleshoot_form"
+    ]
+  }
+}

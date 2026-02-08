@@ -1,0 +1,127 @@
+#nlu.py
+version: "3.1"
+
+nlu:
+- intent: wifi_no_internet
+  examples: |
+    - no internet
+    - wifi connected but no internet
+    - connected to wifi but no internet
+    - my wifi has no internet
+    - internet not working
+    - nothing loads on wifi
+    - websites don't load
+    - no connection
+
+- intent: device_phone
+  examples: |
+    - phone
+    - mobile
+    - smartphone
+    - android
+    - iphone
+    - on my phone
+
+- intent: device_computer
+  examples: |
+    - computer
+    - laptop
+    - pc
+    - desktop
+    - mac
+    - on my computer
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yup
+    - yep
+    - correct
+    - it loads
+    - it works
+    - fixed
+    - now it works
+    - sure
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - nah
+    - doesn't load
+    - still broken
+    - not working
+    - no change
+
+- intent: start_over
+  examples: |
+    - start over
+    - reset
+    - restart
+    - begin again
+    - from the top
+
+- intent: random_issue
+  examples: |
+    - random
+    - random glitches
+    - sometimes
+    - on and off
+    - intermittent
+    - flaky
+    - unstable
+
+- intent: slow_issue
+  examples: |
+    - slow
+    - consistently slow
+    - always slow
+    - laggy
+    - sluggish
+    - very slow
+
+
+- intent: platform_windows
+  examples: |
+    - windows
+    - win
+    - windows 10
+    - windows 11
+    - pc windows
+
+- intent: platform_macos
+  examples: |
+    - mac
+    - macos
+    - osx
+    - macbook
+    - apple laptop
+
+- intent: platform_linux
+  examples: |
+    - linux
+    - ubuntu
+    - debian
+    - arch
+    - fedora
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - i do
+    - i can
+    - i have access
+    - i'm at home
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - i can't
+    - no access
+    - i'm not at home
+    - i'm at work
+    - i'm in a cafe
+

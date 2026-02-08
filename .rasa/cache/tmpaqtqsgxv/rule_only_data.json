@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [
+    "stage"
+  ],
+  "rule_only_loops": [
+    "wifi_main_form"
+  ]
+}

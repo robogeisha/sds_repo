@@ -1,0 +1,63 @@
+#rules.yml
+version: "3.1"
+
+rules:
+
+- rule: Start wifi troubleshooting
+  steps:
+    - intent: wifi_no_internet
+    - action: utter_controls
+    - action: wifi_main_form
+    - active_loop: wifi_main_form
+
+- rule: Submit main form -> route advice
+  condition:
+    - active_loop: wifi_main_form
+  steps:
+    - action: wifi_main_form
+    - active_loop: null
+    - action: action_route_advice
+
+- rule: Submit resolved form -> attempts or finish
+  condition:
+    - active_loop: wifi_resolved_form
+  steps:
+    - action: wifi_resolved_form
+    - active_loop: null
+    - action: action_increment_attempts_or_finish
+
+- rule: Start over anytime
+  steps:
+    - intent: start_over
+    - action: action_reset_troubleshoot
+    - action: utter_reset_done
+    - action: utter_controls
+    - action: wifi_main_form
+    - active_loop: wifi_main_form
+
+
+- rule: Platform answered -> flush DNS -> ask resolved
+  condition:
+    - slot_was_set:
+        - last_advice: ask_platform_for_dns
+  steps:
+    - or:
+        - intent: platform_linux
+        - intent: platform_windows
+        - intent: platform_macos
+    - action: action_flush_dns_for_platform
+
+
+
+
+- rule: After DNS step -> handle yes/no
+  condition:
+    - slot_was_set:
+        - last_advice: tier_forget_rejoin_dns
+  steps:
+    - or:
+        - intent: affirm
+        - intent: deny
+    - action: action_increment_attempts_or_finish
+
+

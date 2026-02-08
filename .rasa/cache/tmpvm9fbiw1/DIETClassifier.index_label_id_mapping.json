@@ -1,0 +1,10 @@
+{
+  "0": "affirm",
+  "1": "deny",
+  "2": "device_computer",
+  "3": "device_phone",
+  "4": "random_issue",
+  "5": "slow_issue",
+  "6": "start_over",
+  "7": "wifi_no_internet"
+}

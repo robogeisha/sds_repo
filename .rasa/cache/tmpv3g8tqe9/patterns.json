@@ -1,0 +1,26 @@
+[
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\bconnected but no internet\\b"
+  },
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\bconnected to wifi but (nothing|no pages) (loads|load)\\b"
+  },
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\binternet (is )?down\\b"
+  },
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\bno (the )?internet\\b"
+  },
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\bno connection\\b"
+  },
+  {
+    "name": "wifi_no_internet",
+    "pattern": "(?i)\\bwifi connected but no internet\\b"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}]": "action_route_advice",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_reset_troubleshoot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_reset_done",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_controls",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}]": "wifi_main_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}]": "action_route_advice",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_linux\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_resolved_form\"}}]": "action_increment_attempts_or_finish",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_resolved_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}]": "action_route_advice",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_macos\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "utter_controls",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "wifi_main_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}]": "action_route_advice",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_windows\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "wifi_main_form",
+      "wifi_resolved_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"utter_controls\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"start_over\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_controls\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "predicting default action with intent restart",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_resolved_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}]",
+      "handling active loops and forms - wifi_main_form",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_resolved_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_increment_attempts_or_finish\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_route_advice\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "handling active loops and forms - wifi_resolved_form - action_listen",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_linux\"}}]",
+      "handling active loops and forms - wifi_main_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_windows\"}}]",
+      "handling active loops and forms - wifi_resolved_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}, {\"prev_action\": {\"action_name\": \"action_route_advice\"}, \"user\": {\"intent\": \"platform_macos\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}]"
+    ]
+  }
+}

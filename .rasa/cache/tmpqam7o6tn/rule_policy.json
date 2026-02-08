@@ -1,0 +1,72 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]": "action_handle_confirm_no",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_handle_confirm_no\"}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}]": "action_next_question",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_macos\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_out_of_scope",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_out_of_scope\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}]": "action_next_question",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_windows\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_reset_troubleshoot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_reset_done",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_intro",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}]": "utter_controls",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_next_question",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"start_over\"}}]": "wifi_main_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"start_over\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"start_over\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_handle_confirm_yes",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"prev_action\": {\"action_name\": \"action_handle_confirm_yes\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}]": "action_next_question",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_linux\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "utter_controls",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "action_next_question",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "wifi_main_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"action_next_question\"}}]": "wifi_main_form",
+      "[{\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"action_next_question\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "wifi_main_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_next_question\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"start_over\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_next_question\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_next_question\"}}, {\"active_loop\": {\"name\": \"wifi_main_form\"}, \"prev_action\": {\"action_name\": \"wifi_main_form\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_macos\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_macos\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}]",
+      "handling active loops and forms - wifi_main_form",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"action_handle_confirm_no\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"prev_action\": {\"action_name\": \"action_handle_confirm_yes\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_reset_troubleshoot\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_reset_done\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_intro\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"start_over\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"start_over\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_linux\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_linux\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "predicting default action with intent back",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_out_of_scope\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "handling active loops and forms - wifi_main_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_resolved\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}, {\"prev_action\": {\"action_name\": \"utter_controls\"}, \"user\": {\"intent\": \"wifi_no_internet\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"utter_ask_platform\"}}, {\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"platform_windows\"}}, {\"prev_action\": {\"action_name\": \"action_next_question\"}, \"user\": {\"intent\": \"platform_windows\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_over\"}}]"
+    ]
+  }
+}

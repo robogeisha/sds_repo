@@ -1,0 +1,238 @@
+#domain.yml
+version: "3.1"
+
+intents:
+  - wifi_no_internet
+  - device_phone
+  - device_computer
+  - affirm
+  - deny
+  - random_issue
+  - slow_issue
+  - platform_windows
+  - platform_macos
+  - platform_linux
+  - start_over
+
+entities: []
+
+slots:
+  device_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: device_phone
+        value: phone
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: device_type
+      - type: from_intent
+        intent: device_computer
+        value: computer
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: device_type
+
+  loads_example:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: loads_example
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: loads_example
+
+  # NEW: "everything" vs "one app/site"
+  scope_issue:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: scope_issue
+
+  random_failures:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: random_issue
+        value: true
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: random_failures
+      - type: from_intent
+        intent: slow_issue
+        value: false
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: random_failures
+
+  other_devices:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: other_devices
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: other_devices
+
+  sees_login:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: sees_login
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: sees_login
+
+  can_restart_router:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: can_restart_router
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: wifi_main_form
+            requested_slot: can_restart_router
+
+  resolved:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: wifi_resolved_form
+            requested_slot: resolved
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: wifi_resolved_form
+            requested_slot: resolved
+
+  platform:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: platform_windows
+        value: windows
+      - type: from_intent
+        intent: platform_macos
+        value: macos
+      - type: from_intent
+        intent: platform_linux
+        value: linux
+
+  attempt_count:
+    type: float
+    initial_value: 0
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  last_advice:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_controls:
+    - text: "You can say **start over** anytime."
+
+  utter_ask_device_type:
+    - text: "Are you on phone or computer?"
+
+  utter_ask_loads_example:
+    - text: "Quick test: open **example.com** — does it load?"
+
+  # NEW
+  utter_ask_scope_issue:
+    - text: "Is it happening on **everything**, or just **one app/site**?"
+
+  utter_ask_random_failures:
+    - text: "Okay — is it **random** or **slow**?"
+
+  utter_ask_other_devices:
+    - text: "Do you have other devices connected right now?"
+
+  utter_ask_sees_login:
+    - text: "Do you see a Wi-Fi login / accept-terms page?"
+
+  utter_ask_can_restart_router:
+    - text: "Do you have access to the router/modem right now?"
+
+  utter_ask_resolved:
+    - text: "Did that fix it?"
+
+  utter_reset_done:
+    - text: "Starting over."
+
+  utter_out_of_scope:
+    - text: "Sorry, I can only help with Wi-Fi troubleshooting right now. Say **no internet** to start, or **start over**."
+
+forms:
+  wifi_main_form:
+    required_slots:
+      - device_type
+      - loads_example
+      # (actions.py controls this)
+      - scope_issue
+      - random_failures
+      - other_devices
+      - sees_login
+      - can_restart_router
+
+  wifi_resolved_form:
+    required_slots:
+      - resolved
+
+actions:
+  - validate_wifi_main_form
+  - action_route_advice
+  - action_after_advice
+  - action_increment_attempts_or_finish
+  - action_reset_troubleshoot
+  - action_flush_dns_for_platform
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
