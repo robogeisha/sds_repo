@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .env
 models/*.tar.gz
+__pycache__/
+*.pyc
+.cache/
