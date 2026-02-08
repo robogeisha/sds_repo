@@ -6,3 +6,6 @@ models/*.tar.gz
 __pycache__/
 *.pyc
 .cache/
+
+# Rasa runtime artifacts
+.rasa/

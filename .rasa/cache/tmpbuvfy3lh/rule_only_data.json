@@ -1,7 +1,0 @@
-{
-  "rule_only_slots": [],
-  "rule_only_loops": [
-    "wifi_resolved_form",
-    "wifi_main_form"
-  ]
-}
