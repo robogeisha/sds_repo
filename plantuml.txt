@@ -1,0 +1,130 @@
+@startuml
+title Wi-Fi Troubleshooter 
+start
+:Welcome;
+
+:Ask device type (phone/computer);
+:Quick test: open example.com — does it load?;
+
+if (Loads example.com?) then (Yes)
+  :Ask scope_issue;
+  note right
+    everything vs one app/site
+  end note
+
+  :Ask random_failures (random vs slow);
+  :Ask other_devices (yes/no);
+  :Ask can_restart_router (yes/no);
+
+  repeat
+    if (attempt_count == 0) then (Attempt 0)
+
+      if (scope_issue == "one") then (One app/site)
+        if (device == computer) then (Computer)
+          :Advice;\nTry another browser/incognito;\nDisable VPN/proxy;\nHard refresh;
+        else (Phone)
+          :Advice;\nForce close app;\nToggle Wi-Fi;\nDisable VPN;
+        endif
+
+      else (Everything)
+        if (other_devices == yes) then (Yes)
+          :Advice;\nPause streams/downloads;\nRetest;
+        else (No)
+          if (random_failures == yes) then (Random)
+            :Advice;\nMove closer;\nSwitch 2.4/5G;\nRetest;
+          else (Slow)
+            :Advice;\nDisable VPN;\nToggle Wi-Fi;\nRetest;
+          endif
+        endif
+      endif
+
+      :Ask "Did that fix it?";
+
+    elseif (attempt_count == 1) then (Attempt 1)
+      :Advice;\nForget Wi-Fi network;\nReconnect;\nRetest;
+      :Ask "Did that fix it?";
+
+    else (Attempt 2+)
+      if (can_restart_router == yes) then (Yes)
+        :Advice;\nRestart router/modem;\nUnplug 10s;\nWait ~1 min;\nRetest;
+      else (No)
+        :Advice;\nNo router access:\nTry another Wi-Fi/hotspot to confirm;
+      endif
+      :Ask "Did that fix it?";
+    endif
+
+    if (Resolved?) then (Yes)
+      :Success message;
+      stop
+    else (No)
+      :attempt_count += 1;
+    endif
+
+  repeat while (attempt_count <= 2)
+
+  :Escalate (cooked);
+  stop
+
+else (No)
+  :Ask sees_login (captive portal?);
+  :Ask can_restart_router (yes/no);
+
+  if (sees_login == yes) then (Portal)
+    :Advice;\nOpen login/terms;\nAccept;\nRetest;
+    :Ask "Did that fix it?";
+    if (Resolved?) then (Yes)
+      :Success message;
+      stop
+    else (No)
+      :Portal failed -> continue;
+    endif
+  endif
+
+  repeat
+    if (attempt_count == 0) then (Attempt 0)
+      if (device == phone) then (Phone)
+        :Advice;\nAirplane mode ON 5s, OFF;\nRetest;
+      else (Computer)
+        :Advice;\nToggle Wi-Fi;\nDisable/enable adapter;\nRetest;
+      endif
+      :Ask "Did that fix it?";
+
+    elseif (attempt_count == 1) then (Attempt 1)
+      if (can_restart_router == yes) then (Yes)
+        :Advice;\nRestart router/modem;\nUnplug 10s;\nWait ~1 min;\nRetest;
+      else (No)
+        :Advice;\nForget Wi-Fi;\nReconnect + re-enter password;\nRetest;
+      endif
+      :Ask "Did that fix it?";
+
+    else (Attempt 2 / Level 3)
+      if (device == phone) then (Phone)
+        :Advice;\nReset Network Settings;\nReconnect;\nRetest;
+        :Ask "Did that fix it?";
+      else (Computer)
+        :Ask platform (Windows/macOS/Linux);
+        :Do IP renew + DNS flush;
+        :Ask "Did that fix it?";
+        if (Resolved?) then (Yes)
+          :Success message;
+          stop
+        else (No)
+          :Hard stop after IP+DNS (cooked);
+          stop
+        endif
+      endif
+    endif
+
+    if (Resolved?) then (Yes)
+      :Success message;
+      stop
+    else (No)
+      :attempt_count += 1;
+    endif
+
+  repeat while (attempt_count <= 2)
+
+  :Escalate (cooked);
+  stop
+endif
+@enduml
